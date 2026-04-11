@@ -1,32 +1,39 @@
 package main
 
-import (
-	"fmt"
-	"strings"
-	"unicode"
-)
-
-func capitalizeWords(s string) string {
-	words := strings.Fields(s)
-
-	for i := 0; i < len(words); i++ {
-		r := []rune(strings.ToLower(words[i]))
-
-		if len(r) > 0 {
-			r[0] = unicode.ToUpper(r[0])
-		}
-
-		words[i] = string(r)
-	}
-
-	return strings.Join(words, " ")
-}
+import "fmt"
 
 func main() {
 	var s string
+	open := 0
+	close := 0
+	balance := 0
+	ok := true
 
 	fmt.Print("Введите строку: ")
 	fmt.Scanln(&s)
 
-	fmt.Println(capitalizeWords(s))
+	for _, ch := range s {
+		if ch == '(' {
+			open++
+			balance++
+		}
+		if ch == ')' {
+			close++
+			balance--
+		}
+
+		if balance < 0 {
+			ok = false
+		}
+	}
+
+	if balance != 0 {
+		ok = false
+	}
+
+	if ok {
+		fmt.Printf("Скобки расставлены верно, %d открывающиеся, %d закрывающиеся\n", open, close)
+	} else {
+		fmt.Printf("Скобки расставлены неправильно, %d открывающиеся, %d закрывающиеся\n", open, close)
+	}
 }
