@@ -1,0 +1,20 @@
+{{define "content"}}
+
+<section class="posts-section">
+    <h2>Опубликованные статьи</h2>
+
+    {{if .Posts}}
+        {{range .Posts}}
+        <div class="card article-card">
+            <h3>{{.Title}}</h3>
+            <p>{{.Description}}</p>
+            <p class="meta"><b>Автор:</b> {{.Author}} · {{.CreatedAt}}</p>
+            <a href="/post?id={{.ID}}">Читать полностью</a>
+        </div>
+        {{end}}
+    {{else}}
+        <p class="empty">Пока нет опубликованных статей. Станьте первым автором!</p>
+    {{end}}
+</section>
+
+{{end}}

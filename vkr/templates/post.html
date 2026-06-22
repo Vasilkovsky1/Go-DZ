@@ -1,0 +1,13 @@
+{{define "content"}}
+
+<article class="post">
+    <h2>{{.Post.Title}}</h2>
+
+    <p class="meta"><b>Автор:</b> {{.Post.Author}} · {{.Post.CreatedAt}}</p>
+
+    <hr>
+
+    <p>{{.Post.Content}}</p>
+</article>
+
+{{end}}

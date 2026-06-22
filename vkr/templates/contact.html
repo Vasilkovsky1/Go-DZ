@@ -1,0 +1,16 @@
+{{define "content"}}
+
+<section class="page-box">
+    <h2>Контакты</h2>
+
+    <p>Заполните форму, чтобы отправить сообщение администрации сайта.</p>
+
+    <form method="POST" action="/contact">
+        <input type="text" name="name" placeholder="Ваше имя" required>
+        <input type="email" name="email" placeholder="Ваш email" required>
+        <textarea name="message" placeholder="Ваше сообщение" required></textarea>
+        <button type="submit">Отправить</button>
+    </form>
+</section>
+
+{{end}}

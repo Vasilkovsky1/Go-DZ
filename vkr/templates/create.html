@@ -1,0 +1,23 @@
+{{define "content"}}
+
+<section class="page-box">
+    <h2>Создать статью</h2>
+
+    <p>Чтобы создать статью, нужно быть авторизованным пользователем.</p>
+
+    <form method="POST" action="/create">
+        <input type="text" name="title" placeholder="Заголовок статьи" required>
+
+        <input type="text" name="description" placeholder="Краткое описание" required>
+
+        <textarea
+            name="content"
+            placeholder="Текст статьи"
+            required
+        ></textarea>
+
+        <button type="submit">Опубликовать</button>
+    </form>
+</section>
+
+{{end}}
